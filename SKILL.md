@@ -1,6 +1,6 @@
 ---
 name: beautyplus-ai
-description: "BeautyPlus AI image effects: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay), and photo restoration (denoise / AI ultra-HD). Pass --task with the effect KEY; algorithm task/params come from POST /skill/config.json invoke map. Current catalog is image-only — use blocking run-task (§3a). Video async path (spawn-run-task + sessions_spawn) is documented as reserved for future video effect keys. Paid API (tenant quota); never claim free or invent pricing."
+description: "BeautyPlus AI image effects: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay), and photo restoration (denoise / AI ultra-HD). Pass --task with the effect KEY; algorithm task/params come from POST /skill/config.json invoke map. Current catalog is image-only — use blocking run-task (§3a). Video async path (spawn-run-task + sessions_spawn) is documented as reserved for future video effect keys. "
 version: 1.0.0
 author: BeautyPlus
 metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","body-reshape","hair-color","hairstyle","outfit-change","cosplay","photo-restoration","beautyplus","paid-api"]}}

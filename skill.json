@@ -1,7 +1,7 @@
 {
   "name": "beautyplus-ai",
   "version": "1.0.0",
-  "description": "BeautyPlus AI image effects: body reshape (breast/butt with strength tiers), hair color and hairstyle, outfit change (formal, vacation, cosplay), photo restoration and AI ultra-HD. Use --task with the effect KEY; params from POST /skill/config.json invoke. Current catalog is image-only (blocking run-task). Video async spawn path reserved for future keys. Paid API.",
+  "description": "BeautyPlus AI image effects: body reshape (breast/butt with strength tiers), hair color and hairstyle, outfit change (formal, vacation, cosplay), photo restoration and AI ultra-HD. Use --task with the effect KEY; params from POST /skill/config.json invoke. Current catalog is image-only (blocking run-task). Video async spawn path reserved for future keys. Paid API. ",
   "author": "one2x-ai",
   "license": "MIT",
   "homepage": "https://github.com/openclaw/openclaw",
