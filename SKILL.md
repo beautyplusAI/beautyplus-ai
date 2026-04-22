@@ -51,66 +51,116 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Peach butt | `butt_peach_strong` | `butt_peach_medium` | `butt_peach_weak` | Lift and side volume for a rounded peach shape; improves waist-to-hip ratio. |
 | O-shape butt | `butt_o_shape_strong` | `butt_o_shape_medium` | `butt_o_shape_weak` | Smooth, continuous curve with even side profile. |
 
-### All other effects
+### Hair — color
 
-| Category | Effect name | Effect KEY | Description |
-|---|---|---|---|
-| Hair — color | Natural black hair | `hair_black` | Deep black shine; healthy, natural-looking hair. |
-| Hair — color | Blonde | `hair_blonde` | Classic golden blonde; bright, skin-flattering tone. |
-| Hair — color | Brown with highlights | `hair_brown_highlights` | Alternating depth for dimension and movement. |
-| Hair — color | Platinum blonde | `hair_platinum` | Soft creamy platinum; gentle on skin tone. |
-| Hair — color | Silver platinum | `hair_silver_platinum` | Cool metallic silver; edgy, modern look. |
-| Hair — color | Teddy warm brown | `hair_teddy_brown` | Warm soft brown; softens features, youthful vibe. |
-| Hair — style | Glossy hair | `hair_glossy` | Extra shine and sleek fall; silky, reflective finish. |
-| Hair — style | Layered cut | `hair_high_layer` | Light layers and airy volume. |
-| Hair — style | Soft waves | `hair_soft_waves` | Romantic large waves; flatters face shape. |
-| Hair — style | Latino curls | `hair_latino_curls` | Tight curls, maximum volume; bold texture. |
-| Outfits — formal | Yellow evening gown | `dress_yellow_gown` | Vivid yellow silk gown; evening presence. |
-| Outfits — formal | Rhinestone mesh gown | `dress_arctic_allure` | Rhinestone mesh with galaxy sparkle; luxe and sheer. |
-| Outfits — formal | Feather gown | `dress_ostrich_feather` | Feather accents; ethereal movement. |
-| Outfits — formal | Beaded goddess gown | `dress_muse_goddess` | Radiating beadwork; couture-heavy look. |
-| Outfits — formal | Tartan suit | `suit_tartan_eve` | British tartan suit; smart, polished set. |
-| Outfits — formal | Black suit | `suit_red_carpet` | Classic black suit; sharp red-carpet energy. |
-| Outfits — vacation | Bunny ear accessory | `accessory_bunny_ear` | Playful bunny ears; flatters head and face shape. |
-| Outfits — vacation | Pale yellow slip dress | `dress_butter_moonlight` | Low-saturation yellow slip; fresh, light look. |
-| Outfits — vacation | Pink puff dress | `dress_pink_puffy` | Tiered pink puff dress; sweet portrait style. |
-| Outfits — vacation | Hoodie dress | `dress_gold_hoodie` | Hoodie meets dress; urban casual blend. |
-| Outfits — vacation | Lace corset set | `dress_lace_corset` | Lace with boned waist; French-inspired sensual fit. |
-| Outfits — vacation | Tiered chiffon maxi | `dress_chiffon_cake` | Layered chiffon “cake” skirt; relaxed vacation mood. |
-| Outfits — vacation | Sheer bikini overlay | `dress_sheer_bikini` | Bikini under sheer cover; two-piece resort look. |
-| Outfits — cosplay | Carnival samba outfit | `cosplay_carnival` | Feather headpiece and embellished bikini; carnival energy. |
-| Outfits — cosplay | Bunny police uniform | `cosplay_bunny_cop` | Navy police tailoring and accessories; crisp hero look. |
-| Outfits — cosplay | Fox print shirt | `cosplay_fox_boyfriend` | Green print shirt and tie; relaxed “boyfriend shirt” vibe. |
-| Outfits — cosplay | Deer girl mini skirt | `cosplay_deer_girl` | Brown with white spots; forest fawn-inspired skirt. |
-| Outfits — cosplay | Grinch costume | `cosplay_grinch` | Green fuzzy character look; fun party costume. |
-| Outfits — cosplay | Victoria's Secret Angel | `cosplay_victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
-| Outfits — cosplay | Dallas Cowboy cheerleader | `cosplay_dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
-| Outfits — party | Floral cami top | `dress_floral_cami` | Botanical floral cami with playful party flair. |
-| Outfits — party | Puff skirt | `dress_puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
-| Outfits — party | Off-shoulder LBD | `dress_off_shoulder_lbd` | Off-shoulder little black dress; timeless evening edge. |
-| Outfits — party | Red latex skirt | `dress_red_latex` | Red latex mini skirt; bold editorial statement. |
-| Outfits — party | Crystal bodycon dress | `dress_moonlight_eclipse` | Full-rhinestone bodycon long gown; moonlit glamour. |
-| Outfits — party | Y3K futuristic set | `dress_y3k` | Futuristic Y3K co-ord; metallic and forward-looking. |
-| Outfits — sports | Brazilian bikini | `sport_bikini_brazilian` | Brazilian-cut bikini; beach-confident summer look. |
-| Outfits — sports | Tennis set | `sport_tennis_set` | Sporty tennis skirt and top; athletic-chic. |
-| Outfits — sports | Cozy hoodie set | `sport_cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
-| Outfits — sports | Racing suit | `sport_racing_suit` | Racing driver suit; bold motorsport identity. |
-| Outfits — sports | White yoga wear | `sport_white_yoga` | Clean white yoga set; minimal and performance-ready. |
-| Face style | Natural beauty | `face_style_natural` | Soft natural enhancement; balanced, effortless temperament. |
-| Face style | Glamour | `face_style_glamour` | Polished and charismatic look; refined allure. |
-| Face style | Sweet girl | `face_style_sweet` | Youthful sweet-girl vibe; soft and approachable. |
-| Face style | Luminous | `face_style_luminous` | Radiant glow finish; bright and clear complexion feel. |
-| Face style | Youthful | `face_style_young` | Fresh and energetic youth style; lively presence. |
-| Expression | Closed-lip smile | `expression_smile_closed` | Gentle closed-lip smile; warm and approachable. |
-| Expression | Open grin | `expression_smile_open` | Wide toothy grin; bright and joyful. |
-| Expression | Cool / poker face | `expression_cool` | Serious cool expression; composed and edgy. |
-| Expression | Eye wink | `expression_wink` | Single-eye wink animation; playful and flirtatious. |
-| Photo art | Bronzed tan | `photo_tan` | Warm bronzed tan filter; sun-kissed editorial look. |
-| Photo art | CCD flash | `photo_ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
-| Photo art | Film grain flash | `photo_film_flash` | Film grain with flash overlay; analog atmosphere. |
-| Photo art | Fuji flash | `photo_fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
-| Photo restoration | Photo restoration | `photo_restoration_v3` | Denoise, deblur, and reduce compression artifacts while keeping a natural look. |
-| Photo restoration | AI ultra-HD | `ai_ultra_hd_v3` | Deep-learning upscale and detail recovery for old photos or small thumbnails. |
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Natural black | `hair_black` | Deep black shine; healthy, natural-looking hair. |
+| Blonde | `hair_blonde` | Classic golden blonde; bright, skin-flattering tone. |
+| Brown with highlights | `hair_brown_highlights` | Alternating depth for dimension and movement. |
+| Platinum blonde | `hair_platinum` | Soft creamy platinum; gentle on skin tone. |
+| Silver platinum | `hair_silver_platinum` | Cool metallic silver; edgy, modern look. |
+| Teddy warm brown | `hair_teddy_brown` | Warm soft brown; softens features, youthful vibe. |
+
+### Hair — style
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Glossy hair | `hair_glossy` | Extra shine and sleek fall; silky, reflective finish. |
+| Layered cut | `hair_high_layer` | Light layers and airy volume. |
+| Soft waves | `hair_soft_waves` | Romantic large waves; flatters face shape. |
+| Latino curls | `hair_latino_curls` | Tight curls, maximum volume; bold texture. |
+
+### Outfits — formal
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Yellow evening gown | `dress_yellow_gown` | Vivid yellow silk gown; evening presence. |
+| Rhinestone mesh gown | `dress_arctic_allure` | Rhinestone mesh with galaxy sparkle; luxe and sheer. |
+| Feather gown | `dress_ostrich_feather` | Feather accents; ethereal movement. |
+| Beaded goddess gown | `dress_muse_goddess` | Radiating beadwork; couture-heavy look. |
+| Tartan suit | `suit_tartan_eve` | British tartan suit; smart, polished set. |
+| Black suit | `suit_red_carpet` | Classic black suit; sharp red-carpet energy. |
+
+### Outfits — vacation
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Bunny ear accessory | `accessory_bunny_ear` | Playful bunny ears; flatters head and face shape. |
+| Pale yellow slip dress | `dress_butter_moonlight` | Low-saturation yellow slip; fresh, light look. |
+| Pink puff dress | `dress_pink_puffy` | Tiered pink puff dress; sweet portrait style. |
+| Hoodie dress | `dress_gold_hoodie` | Hoodie meets dress; urban casual blend. |
+| Lace corset set | `dress_lace_corset` | Lace with boned waist; French-inspired sensual fit. |
+| Tiered chiffon maxi | `dress_chiffon_cake` | Layered chiffon "cake" skirt; relaxed vacation mood. |
+| Sheer bikini overlay | `dress_sheer_bikini` | Bikini under sheer cover; two-piece resort look. |
+
+### Outfits — cosplay
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Carnival samba outfit | `cosplay_carnival` | Feather headpiece and embellished bikini; carnival energy. |
+| Bunny police uniform | `cosplay_bunny_cop` | Navy police tailoring and accessories; crisp hero look. |
+| Fox print shirt | `cosplay_fox_boyfriend` | Green print shirt and tie; relaxed "boyfriend shirt" vibe. |
+| Deer girl mini skirt | `cosplay_deer_girl` | Brown with white spots; forest fawn-inspired skirt. |
+| Grinch costume | `cosplay_grinch` | Green fuzzy character look; fun party costume. |
+| Victoria's Secret Angel | `cosplay_victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
+| Dallas Cowboy cheerleader | `cosplay_dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
+
+### Outfits — party
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Floral cami top | `dress_floral_cami` | Botanical floral cami with playful party flair. |
+| Puff skirt | `dress_puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
+| Off-shoulder LBD | `dress_off_shoulder_lbd` | Off-shoulder little black dress; timeless evening edge. |
+| Red latex skirt | `dress_red_latex` | Red latex mini skirt; bold editorial statement. |
+| Crystal bodycon dress | `dress_moonlight_eclipse` | Full-rhinestone bodycon long gown; moonlit glamour. |
+| Y3K futuristic set | `dress_y3k` | Futuristic Y3K co-ord; metallic and forward-looking. |
+
+### Outfits — sports
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Brazilian bikini | `sport_bikini_brazilian` | Brazilian-cut bikini; beach-confident summer look. |
+| Tennis set | `sport_tennis_set` | Sporty tennis skirt and top; athletic-chic. |
+| Cozy hoodie set | `sport_cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
+| Racing suit | `sport_racing_suit` | Racing driver suit; bold motorsport identity. |
+| White yoga wear | `sport_white_yoga` | Clean white yoga set; minimal and performance-ready. |
+
+### Face style
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Natural beauty | `face_style_natural` | Soft natural enhancement; balanced, effortless temperament. |
+| Glamour | `face_style_glamour` | Polished and charismatic look; refined allure. |
+| Sweet girl | `face_style_sweet` | Youthful sweet-girl vibe; soft and approachable. |
+| Luminous | `face_style_luminous` | Radiant glow finish; bright and clear complexion feel. |
+| Youthful | `face_style_young` | Fresh and energetic youth style; lively presence. |
+
+### Expression
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Closed-lip smile | `expression_smile_closed` | Gentle closed-lip smile; warm and approachable. |
+| Open grin | `expression_smile_open` | Wide toothy grin; bright and joyful. |
+| Cool / poker face | `expression_cool` | Serious cool expression; composed and edgy. |
+| Eye wink | `expression_wink` | Single-eye wink animation; playful and flirtatious. |
+
+### Photo art
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Bronzed tan | `photo_tan` | Warm bronzed tan filter; sun-kissed editorial look. |
+| CCD flash | `photo_ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
+| Film grain flash | `photo_film_flash` | Film grain with flash overlay; analog atmosphere. |
+| Fuji flash | `photo_fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
+
+### Photo restoration
+
+| Effect name | Effect KEY | Description |
+|---|---|---|
+| Photo restoration | `photo_restoration_v3` | Denoise, deblur, and reduce compression artifacts while keeping a natural look. |
+| AI ultra-HD | `ai_ultra_hd_v3` | Deep-learning upscale and detail recovery for old photos or small thumbnails. |
 
 ### Video async path (reserved)
 
