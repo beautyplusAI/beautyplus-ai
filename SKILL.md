@@ -1,6 +1,6 @@
 ---
 name: beautyplus-ai
-description: "BeautyPlus AI image effects: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay), and photo restoration (denoise / AI ultra-HD). Pass --task with the effect KEY; algorithm task/params come from POST /skill/config.json invoke map. Current catalog is image-only — use blocking run-task (§3a). Video async path (spawn-run-task + sessions_spawn) is documented as reserved for future video effect keys. "
+description: "BeautyPlus portrait beautification: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay / party / sports), face style, expression (smile / wink / cool), and photo art (tan / flash / film).  "
 version: 1.0.0
 author: BeautyPlus
 metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","body-reshape","hair-color","hairstyle","outfit-change","cosplay","photo-restoration","beautyplus","paid-api"]}}
@@ -17,7 +17,12 @@ Activate when the user wants any of the following on a **photo / image** (path, 
 - **Hair — style** — glossy hair, layered cut, soft waves, Latino curls, etc.
 - **Outfits — formal** — gowns, rhinestone mesh dress, feather dress, beaded dress, tartan suit, black suit, etc.
 - **Outfits — vacation** — bunny ears, slip dress, puff dress, hoodie dress, lace corset set, tiered chiffon dress, sheer bikini overlay, etc.
-- **Outfits — cosplay** — carnival, bunny cop, fox shirt, deer girl skirt, Grinch, etc.
+- **Outfits — cosplay** — carnival, bunny cop, fox shirt, deer girl skirt, Grinch, Victoria Angel, Dallas Cowboy, etc.
+- **Outfits — party** — floral cami top, puff skirt, off-shoulder LBD, red latex skirt, crystal bodycon dress, Y3K futuristic set, etc.
+- **Outfits — sports** — Brazilian bikini, tennis set, cozy hoodie set, racing suit, white yoga wear, etc.
+- **Face style** — natural, glamour, sweet girl, luminous, youthful temperament styles
+- **Expression** — closed-lip smile, open grin, cool poker-face, eye wink
+- **Photo art** — bronzed tan filter, CCD flash, film grain flash, Fuji flash
 - **Photo restoration** — denoise / repair, AI ultra-HD upscaling
 
 **Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below (same key as `algorithm.invoke` in **`POST /skill/config.json`** after `preflight` / client init).
@@ -81,6 +86,32 @@ All rows use **image** input (path or URL) unless a future server catalog adds *
 | Outfits — cosplay | Fox print shirt | — | `cosplay_fox_boyfriend` | Green print shirt and tie; relaxed “boyfriend shirt” vibe. |
 | Outfits — cosplay | Deer girl mini skirt | — | `cosplay_deer_girl` | Brown with white spots; forest fawn-inspired skirt. |
 | Outfits — cosplay | Grinch costume | — | `cosplay_grinch` | Green fuzzy character look; fun party costume. |
+| Outfits — cosplay | Victoria's Secret Angel | — | `cosplay_victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
+| Outfits — cosplay | Dallas Cowboy cheerleader | — | `cosplay_dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
+| Outfits — party | Floral cami top | — | `dress_floral_cami` | Botanical floral cami with playful party flair. |
+| Outfits — party | Puff skirt | — | `dress_puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
+| Outfits — party | Off-shoulder LBD | — | `dress_off_shoulder_lbd` | Off-shoulder little black dress; timeless evening edge. |
+| Outfits — party | Red latex skirt | — | `dress_red_latex` | Red latex mini skirt; bold editorial statement. |
+| Outfits — party | Crystal bodycon dress | — | `dress_moonlight_eclipse` | Full-rhinestone bodycon long gown; moonlit glamour. |
+| Outfits — party | Y3K futuristic set | — | `dress_y3k` | Futuristic Y3K co-ord; metallic and forward-looking. |
+| Outfits — sports | Brazilian bikini | — | `sport_bikini_brazilian` | Brazilian-cut bikini; beach-confident summer look. |
+| Outfits — sports | Tennis set | — | `sport_tennis_set` | Sporty tennis skirt and top; athletic-chic. |
+| Outfits — sports | Cozy hoodie set | — | `sport_cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
+| Outfits — sports | Racing suit | — | `sport_racing_suit` | Racing driver suit; bold motorsport identity. |
+| Outfits — sports | White yoga wear | — | `sport_white_yoga` | Clean white yoga set; minimal and performance-ready. |
+| Face style | Natural beauty | — | `face_style_natural` | Soft natural enhancement; balanced, effortless temperament. |
+| Face style | Glamour | — | `face_style_glamour` | Polished and charismatic look; refined allure. |
+| Face style | Sweet girl | — | `face_style_sweet` | Youthful sweet-girl vibe; soft and approachable. |
+| Face style | Luminous | — | `face_style_luminous` | Radiant glow finish; bright and clear complexion feel. |
+| Face style | Youthful | — | `face_style_young` | Fresh and energetic youth style; lively presence. |
+| Expression | Closed-lip smile | — | `expression_smile_closed` | Gentle closed-lip smile; warm and approachable. |
+| Expression | Open grin | — | `expression_smile_open` | Wide toothy grin; bright and joyful. |
+| Expression | Cool / poker face | — | `expression_cool` | Serious cool expression; composed and edgy. |
+| Expression | Eye wink | — | `expression_wink` | Single-eye wink animation; playful and flirtatious. |
+| Photo art | Bronzed tan | — | `photo_tan` | Warm bronzed tan filter; sun-kissed editorial look. |
+| Photo art | CCD flash | — | `photo_ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
+| Photo art | Film grain flash | — | `photo_film_flash` | Film grain with flash overlay; analog atmosphere. |
+| Photo art | Fuji flash | — | `photo_fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
 | Photo restoration | Photo restoration | — | `photo_restoration_v3` | Denoise, deblur, and reduce compression artifacts while keeping a natural look. |
 | Photo restoration | AI ultra-HD | — | `ai_ultra_hd_v3` | Deep-learning upscale and detail recovery for old photos or small thumbnails. |
 
