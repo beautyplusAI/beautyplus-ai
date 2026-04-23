@@ -1,7 +1,7 @@
 ---
 name: beautyplus-ai
 description: "BeautyPlus portrait beautification: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay / party / sports), face style, expression (smile / wink / cool), and photo art (tan / flash / film).  "
-version: 1.0.0
+version: 1.0.1
 author: BeautyPlus
 metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","body-reshape","hair-color","hairstyle","outfit-change","cosplay","photo-restoration","beautyplus","paid-api"]}}
 ---
@@ -25,7 +25,7 @@ Activate when the user wants any of the following on a **photo / image** (path, 
 - **Photo art** — bronzed tan filter, CCD flash, film grain flash, Fuji flash
 - **Photo restoration** — denoise / repair, AI ultra-HD upscaling
 
-**Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below (same key as `algorithm.invoke` in **`POST /skill/config.json`** after `preflight` / client init).
+**Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below. The algorithm spec for each key is returned inline by **`POST /skill/consume.json`** (`invoke_spec`) — do not hard-code AIGC paths.
 
 ## Billing and user-facing claims (MANDATORY)
 
@@ -36,7 +36,7 @@ Activate when the user wants any of the following on a **photo / image** (path, 
 
 ## Supported Algorithms (effect KEY → `--task`)
 
-All rows use **image** input. Algorithm params for each key are loaded from `algorithm.invoke[effect_key]` via `POST /skill/config.json` — do not hard-code AIGC paths.
+All rows use **image** input. Algorithm params for each key are returned as `invoke_spec` by **`POST /skill/consume.json`** — do not hard-code AIGC paths.
 
 ### Body reshape — figure
 

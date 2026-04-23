@@ -1,6 +1,6 @@
 {
   "name": "beautyplus-ai",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BeautyPlus Portrait Beauty: body reshape (breast/butt with strength tiers), hair color and hairstyle, outfit change (formal, vacation, cosplay, party, sports), face style, expression (smile/wink/cool), photo art (tan/flash/film), photo restoration and AI ultra-HD. Use --task with the effect KEY; params from POST /skill/config.json invoke. Current catalog is image-only (blocking run-task). Video async spawn path reserved for future keys. Paid API. ",
   "author": "BeautyPlus",
   "license": "MIT",
