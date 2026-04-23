@@ -18,11 +18,11 @@ Activate when the user wants any of the following on a **photo / image** (path, 
 - **Outfits — formal** — gowns, rhinestone mesh dress, feather dress, beaded dress, tartan suit, black suit, etc.
 - **Outfits — vacation** — bunny ears, slip dress, puff dress, hoodie dress, lace corset set, tiered chiffon dress, sheer bikini overlay, etc.
 - **Outfits — cosplay** — carnival, bunny cop, fox shirt, deer girl skirt, Grinch, Victoria Angel, Dallas Cowboy, etc.
-- **Outfits — party** — floral cami top, puff skirt, off-shoulder LBD, red latex skirt, crystal bodycon dress, Y3K futuristic set, etc.
-- **Outfits — sports** — Brazilian bikini, tennis set, cozy hoodie set, racing suit, white yoga wear, etc.
-- **Face style** — natural, glamour, sweet girl, luminous, youthful temperament styles
-- **Expression** — closed-lip smile, open grin, cool poker-face, eye wink
-- **Photo art** — bronzed tan filter, CCD flash, film grain flash, Fuji flash
+- **Outfits — party** — Floral Camisole, Puff Skirt, One-Shoulder LBD, Red Latex, Moonlight Shimmer Dress, Y3K Set, etc.
+- **Outfits — sports** — Brazilian Bikini, Tennis Set, Cozy Fit, Racing Suit, White Yoga, etc.
+- **Face style** — Natural Beauty, Glamour Beauty, Sweet Beauty, Luminous Beauty, Youthful Beauty
+- **Expression** — Closed Smile, Open Smile, Cool Expression, Wink
+- **Photo art** — Tanning Filter, CCD Flash, Film Flash, Fuji Flash
 - **Photo restoration** — denoise / repair, AI ultra-HD upscaling
 
 **Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below. The algorithm spec for each key is returned inline by **`POST /skill/consume.json`** (`invoke_spec`) — do not hard-code AIGC paths.
@@ -103,57 +103,57 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Fox print shirt | `cosplay_fox_boyfriend` | Green print shirt and tie; relaxed "boyfriend shirt" vibe. |
 | Deer girl mini skirt | `cosplay_deer_girl` | Brown with white spots; forest fawn-inspired skirt. |
 | Grinch costume | `cosplay_grinch` | Green fuzzy character look; fun party costume. |
-| Victoria's Secret Angel | `cosplay_victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
-| Dallas Cowboy cheerleader | `cosplay_dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
+| Victoria Angel | `victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
+| Dallas Cowboy | `dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
 
 ### Outfits — party
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
-| Floral cami top | `dress_floral_cami` | Botanical floral cami with playful party flair. |
-| Puff skirt | `dress_puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
-| Off-shoulder LBD | `dress_off_shoulder_lbd` | Off-shoulder little black dress; timeless evening edge. |
-| Red latex skirt | `dress_red_latex` | Red latex mini skirt; bold editorial statement. |
-| Crystal bodycon dress | `dress_moonlight_eclipse` | Full-rhinestone bodycon long gown; moonlit glamour. |
-| Y3K futuristic set | `dress_y3k` | Futuristic Y3K co-ord; metallic and forward-looking. |
+| Floral Camisole | `floral_camisole` | Botanical floral cami with playful party flair. |
+| Puff Skirt | `puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
+| One-Shoulder Little Black Dress | `one_shoulder_lbd` | One-shoulder little black dress; timeless evening edge. |
+| Red Latex | `red_latex` | Red latex mini skirt; bold editorial statement. |
+| Moonlight Shimmer Dress | `moonlight_dress` | Full-rhinestone bodycon long gown; moonlit glamour. |
+| Y3K Set | `y3k_set` | Futuristic Y3K co-ord; metallic and forward-looking. |
 
 ### Outfits — sports
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
-| Brazilian bikini | `sport_bikini_brazilian` | Brazilian-cut bikini; beach-confident summer look. |
-| Tennis set | `sport_tennis_set` | Sporty tennis skirt and top; athletic-chic. |
-| Cozy hoodie set | `sport_cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
-| Racing suit | `sport_racing_suit` | Racing driver suit; bold motorsport identity. |
-| White yoga wear | `sport_white_yoga` | Clean white yoga set; minimal and performance-ready. |
+| Brazilian Bikini | `brazilian_bikini` | Brazilian-cut bikini; beach-confident summer look. |
+| Tennis Set | `tennis_set` | Sporty tennis skirt and top; athletic-chic. |
+| Cozy Fit | `cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
+| Racing Suit | `racing_suit` | Racing driver suit; bold motorsport identity. |
+| White Yoga | `white_yoga` | Clean white yoga set; minimal and performance-ready. |
 
 ### Face style
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
-| Natural beauty | `face_style_natural` | Soft natural enhancement; balanced, effortless temperament. |
-| Glamour | `face_style_glamour` | Polished and charismatic look; refined allure. |
-| Sweet girl | `face_style_sweet` | Youthful sweet-girl vibe; soft and approachable. |
-| Luminous | `face_style_luminous` | Radiant glow finish; bright and clear complexion feel. |
-| Youthful | `face_style_young` | Fresh and energetic youth style; lively presence. |
+| Natural Beauty | `natural_beauty` | Soft natural enhancement; balanced, effortless temperament. |
+| Glamour Beauty | `glamour_beauty` | Polished and charismatic look; refined allure. |
+| Sweet Beauty | `sweet_beauty` | Youthful sweet-girl vibe; soft and approachable. |
+| Luminous Beauty | `luminous_beauty` | Radiant glow finish; bright and clear complexion feel. |
+| Youthful Beauty | `youthful_beauty` | Fresh and energetic youth style; lively presence. |
 
 ### Expression
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
-| Closed-lip smile | `expression_smile_closed` | Gentle closed-lip smile; warm and approachable. |
-| Open grin | `expression_smile_open` | Wide toothy grin; bright and joyful. |
-| Cool / poker face | `expression_cool` | Serious cool expression; composed and edgy. |
-| Eye wink | `expression_wink` | Single-eye wink animation; playful and flirtatious. |
+| Closed Smile | `closed_smile` | Gentle closed-lip smile; warm and approachable. |
+| Open Smile | `open_smile` | Wide toothy grin; bright and joyful. |
+| Cool Expression | `cool_expression` | Serious cool expression; composed and edgy. |
+| Wink | `wink` | Single-eye wink animation; playful and flirtatious. |
 
 ### Photo art
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
-| Bronzed tan | `photo_tan` | Warm bronzed tan filter; sun-kissed editorial look. |
-| CCD flash | `photo_ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
-| Film grain flash | `photo_film_flash` | Film grain with flash overlay; analog atmosphere. |
-| Fuji flash | `photo_fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
+| Tanning Filter | `tanning_filter` | Warm bronzed tan filter; sun-kissed editorial look. |
+| CCD Flash | `ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
+| Film Flash | `film_flash` | Film grain with flash overlay; analog atmosphere. |
+| Fuji Flash | `fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
 
 ### Photo restoration
 
