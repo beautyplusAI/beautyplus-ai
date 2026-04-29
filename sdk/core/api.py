@@ -921,6 +921,37 @@ class AiApi:
             init_images=init_images,
         )
 
+    def invoke_task_with_spec(self, spec, url, params=None, context="", on_async_submitted=None):
+        """
+        Run invoke using a server-supplied spec dict from /skill/consume.json.
+
+        ``spec`` must contain ``task`` and optionally ``params``, ``task_type``, and
+        ``media_profiles``.
+        """
+        label = spec.get("task", "<unknown>") if isinstance(spec, dict) else "<unknown>"
+        if not isinstance(spec, dict) or "task" not in spec:
+            raise ValueError(
+                f"invoke_spec must include 'task'; optional 'params' (default {{}}), "
+                f"optional 'task_type' (default mtlab). Got: {spec!r}"
+            )
+        cfg_params = spec.get("params")
+        if cfg_params is not None and not isinstance(cfg_params, dict):
+            raise TypeError(f"invoke_spec['params'] must be a dict or omit (preset={label!r})")
+        merged = _deep_merge_params(cfg_params or {}, params or {})
+        task_type = _default_task_type(spec.get("task_type"))
+        init_images = _init_images_from_media_profiles(
+            spec.get("media_profiles"), url
+        )
+        return self.invoke(
+            url,
+            merged,
+            spec["task"],
+            context,
+            task_type=task_type,
+            on_async_submitted=on_async_submitted,
+            init_images=init_images,
+        )
+
     def txt2img(self, params, context=""):
         policy = self.getAiStrategy()
         tt = _default_task_type(policy.get("task_type") if policy else None)

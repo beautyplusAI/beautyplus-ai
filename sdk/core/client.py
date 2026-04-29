@@ -188,8 +188,7 @@ class SkillClient:
             pass
 
     def _update_config_from_response(self, response):
-        """Apply algorithm block from config response to AiApi and INVOKE."""
-        from sdk.core.config import INVOKE
+        """Apply algorithm block from config response (regions and token policy only)."""
 
         if "algorithm" not in response:
             return
@@ -230,9 +229,6 @@ class SkillClient:
             self.api.aiStrategy = None
             self.api.storageStrategy = None
             self.api.strategyLoadTime = 0
-
-        if "invoke" in algo:
-            INVOKE.update(algo["invoke"])
 
     def _consume_permission(self, url, task):
         """Call quota/consume API before running a task."""
@@ -336,7 +332,7 @@ class SkillClient:
         """
         Upload media (or use remote URL) and run the named algorithm task.
 
-        :param task_name: Preset name from config INVOKE
+        :param task_name: Task effect key (sent to /skill/consume.json; server returns invoke_spec)
         :param image_path: Local path or http(s) URL
         :param params: Optional invoke params merged over preset defaults
         :param on_async_submitted: Optional ``callable(task_id: str)`` invoked once
@@ -397,8 +393,14 @@ class SkillClient:
             {"step": "submit_algorithm", "invoke_preset": task_name}
         )
 
-        return self.api.invoke_task(
-            task_name, url, params, context, on_async_submitted=on_async_submitted
+        invoke_spec = consume_info.get("invoke_spec") if isinstance(consume_info, dict) else None
+        if not invoke_spec:
+            raise RuntimeError(
+                f"consume.json did not return invoke_spec for task {task_name!r}. "
+                "Check server configuration."
+            )
+        return self.api.invoke_task_with_spec(
+            invoke_spec, url, params, context, on_async_submitted=on_async_submitted
         )
 
     def poll_task_status(self, task_id: str) -> Dict:

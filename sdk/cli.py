@@ -11,6 +11,36 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent
 if str(PROJECT_DIR) not in sys.path:
     sys.path.insert(0, str(PROJECT_DIR))
 
+# Keep CLI behavior aligned with scripts/beautyplus_ai.py:
+# auto-load BP_AK / BP_SK from scripts/.env if env vars are not set.
+def _load_env_file() -> None:
+    # scripts/.env lives next to scripts/ directory in the repo root.
+    candidates = [
+        PROJECT_DIR / "scripts" / ".env",
+        Path.cwd() / ".env",
+    ]
+    for env_path in candidates:
+        if not env_path.exists():
+            continue
+        try:
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    value = value.strip().strip("\"'")
+                    # Do not override explicitly exported env vars.
+                    if key and key not in os.environ:
+                        os.environ[key] = value
+        except OSError:
+            pass
+        break
+
+
+_load_env_file()
+
 from sdk import SkillClient
 from sdk.core.config import INVOKE
 from sdk.core.client import ConsumeDeniedError
@@ -72,8 +102,19 @@ def query_task(ak: str, sk: str, task_id: str) -> int:
 def list_tasks(ak: str, sk: str) -> int:
     """List all available tasks."""
     def _do():
-        SkillClient(ak=ak, sk=sk)
-        tasks = [{"name": n, **c} for n, c in INVOKE.items()]
+        client = SkillClient(ak=ak, sk=sk)
+        cfg = client.fetch_config()
+        invoke_map = {}
+        if isinstance(cfg, dict):
+            algo = cfg.get("algorithm")
+            if isinstance(algo, dict):
+                raw_invoke = algo.get("invoke")
+                if isinstance(raw_invoke, dict):
+                    invoke_map = raw_invoke
+        # Backward compatibility: fall back to local INVOKE table if server payload has no invoke map.
+        if not invoke_map:
+            invoke_map = INVOKE
+        tasks = [{"name": n, **c} for n, c in invoke_map.items()]
         _print({"tasks": tasks, "count": len(tasks)})
         return 0
     return _handle(_do)
@@ -101,7 +142,10 @@ def main() -> int:
     args = parser.parse_args()
 
     if not args.ak or not args.sk:
-        parser.error("--ak and --sk required (or BP_AK/BP_SK env vars)")
+        parser.error(
+            "--ak and --sk required (or BP_AK/BP_SK env vars; "
+            "and/or scripts/.env in repo root)"
+        )
 
     # route to the corresponding handler
     if args.cmd == "run-task":

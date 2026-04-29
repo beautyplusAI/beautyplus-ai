@@ -479,6 +479,9 @@ def cmd_install_deps(_args: argparse.Namespace) -> int:
         import requests  # noqa: F401
         import alibabacloud_oss_v2  # noqa: F401
     except ImportError:
+        # Install Python dependencies from the bundled requirements.txt.
+        # sys.executable is the current interpreter; req is a fixed path resolved at module load.
+        # No user-supplied input is passed to subprocess.
         r = subprocess.run(
             [sys.executable, "-m", "pip", "install", "-q", "-r", str(req)],
             cwd=str(SCRIPTS_DIR),

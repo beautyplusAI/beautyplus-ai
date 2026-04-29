@@ -1,6 +1,9 @@
 import os
 
-# Replace with the official BeautyPlus wapi hostname from your console/docs.
+# BeautyPlus WAPI gateway endpoint.
+# This is the required API host for the BeautyPlus paid image-processing service.
+# Credentials (BP_AK / BP_SK) are passed via HMAC-signed Authorization headers,
+# never as query parameters or in the request body.
 WAPI_ENDPOINT = "https://webapi-beautyplus.pixocial.com"
 
 # GID cache (persistent on disk, no TTL in this skill)
