@@ -1,7 +1,5 @@
 # BeautyPlus AI Skill
 
-**Before use:** Ensure **`scripts/config.py`** uses the correct BeautyPlus wapi host from your console/docs.
-
 Use the **BeautyPlus** commercial media API to process images with effect presets (reshape, hair, outfit, restoration). Compatible with any AI coding agent — GitHub Copilot, Claude, Codex, OpenClaw, and more. Agents use a single CLI entrypoint: `scripts/beautyplus_ai.py`.
 
 Calls consume **quota / credits** for the tenant tied to **BP_AK**. Do not tell end users the service is free or guess pricing — see *Billing and user-facing claims* in [SKILL.md](SKILL.md).
