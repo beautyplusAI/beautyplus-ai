@@ -27,6 +27,10 @@ Activate when the user wants any of the following on a **photo / image** (path, 
 
 **Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below. The algorithm spec for each key is returned inline by **`POST /skill/consume.json`** (`invoke_spec`) — do not hard-code AIGC paths.
 
+For detailed information on API and skill key integration and use cases, please refer to: [https://www.beautyplus.com/developers](https://www.beautyplus.com/developers)
+
+For an overview of BeautyPlus products and features, please visit: [https://www.beautyplus.com](https://www.beautyplus.com)
+
 ## Billing and user-facing claims (MANDATORY)
 
 - **Fact:** Each successful **`run-task`** (including inside a **`sessions_spawn`** worker) goes through server-side **quota / credit consumption** for the **BP_AK** tenant. This is a **paid, metered commercial API**, not free compute bundled with the skill or the host.
