@@ -44,6 +44,8 @@ State and history live under **`~/.openclaw/workspace/beautyplus-ai/`**, and loc
 
 ## Further reading
 
+- [beautyplus.com/developers](https://beautyplus.com/developers) — Full developer documentation, use cases and implementation details
+- [beautyplus.com](https://beautyplus.com/) — Product overview, features, and capabilities
 - [SKILL.md](SKILL.md) — Full agent workflow and mandatory rules  
 - [docs/multi-platform.md](docs/multi-platform.md) — Delivery (Feishu, Telegram, Discord, …)  
 - [docs/errors-and-polling.md](docs/errors-and-polling.md) — Polling, timeouts, failure codes  
