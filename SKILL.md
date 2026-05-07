@@ -1,6 +1,6 @@
 ---
 name: beautyplus-ai
-description: "A comprehensive AI image editing and beautification suite. Use this tool for portrait retouching, body reshaping (breast/butt), AI hair & outfit changes, expression modification, photo restoration (upscaling), and artistic filters."
+description: "A comprehensive AI image editing and beautification suite. Use this tool for portrait retouching, body reshaping (breast/butt), AI hair & AI Clothes changes, expression modification, photo restoration (upscaling), and artistic filters."
 version: 1.0.4
 author: BeautyPlus
 metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","portrait-retouching","body-reshape","virtual-try-on","photo-restoration","image-upscaling", "ai-cosplay", "makeover"]}}
@@ -33,7 +33,7 @@ Agent Instruction: Analyze the user's request. Find the matching category below,
     *   **Other**: Wink, Cool Expression.
 
 ### 3. 👗 AI Clothes Changer
-*   **Use when:** The user asks to change outfits, try on different styles, or dress up for a specific occasion.
+*   **Use when:** The user asks to change AI Clothes, try on different styles, or dress up for a specific occasion.
 *   **Available Categories & Effects:**
     *   **Formal / Evening:** Gowns, Rhinestone mesh dress, Beaded dress, Black suit.
     *   **Vacation / Casual:** Slip dress, Puff dress, Hoodie, Lace corset, Bikini overlay.
@@ -65,7 +65,10 @@ Agent Instruction: Analyze the user's request. Find the matching category below,
 
 **Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below. The algorithm spec for each key is returned inline by **`POST /skill/consume.json`** (`invoke_spec`) — do not hard-code AIGC paths.
 
-For detailed information on API and skill key integration and use cases, please refer to: [https://www.beautyplus.com/developers](https://www.beautyplus.com/developers)
+**⚠️ Crucial Agent Instruction:** 
+When calling the tool, you MUST map the user's intent to the exact `<EFFECT_KEY>` required by the API. If the user request is vague (e.g., "make this photo look better"), default to the **Portrait Retouch (Natural Beauty)** or **Photo Restoration** effect based on image quality.
+
+For detailed information on API and skill key integration and use cases, please refer to: [https://www.beautyplus.com/developers](https://www.beautyplus.com/developers/console)
 
 For an overview of BeautyPlus products and features, please visit: [https://www.beautyplus.com](https://www.beautyplus.com)
 
@@ -113,7 +116,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Soft waves | `hair_soft_waves` | Romantic large waves; flatters face shape. |
 | Latino curls | `hair_latino_curls` | Tight curls, maximum volume; bold texture. |
 
-### Outfits — formal
+### AI Clothes Changes — formal
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
@@ -124,7 +127,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Tartan suit | `suit_tartan_eve` | British tartan suit; smart, polished set. |
 | Black suit | `suit_red_carpet` | Classic black suit; sharp red-carpet energy. |
 
-### Outfits — vacation
+### AI Clothes Changes — vacation
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
@@ -136,7 +139,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Tiered chiffon maxi | `dress_chiffon_cake` | Layered chiffon "cake" skirt; relaxed vacation mood. |
 | Sheer bikini overlay | `dress_sheer_bikini` | Bikini under sheer cover; two-piece resort look. |
 
-### Outfits — cosplay
+### AI Clothes Changes — cosplay
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
@@ -148,7 +151,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Victoria Angel | `victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
 | Dallas Cowboy | `dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
 
-### Outfits — party
+### AI Clothes Changes — party
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
@@ -159,7 +162,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 | Moonlight Shimmer Dress | `moonlight_dress` | Full-rhinestone bodycon long gown; moonlit glamour. |
 | Y3K Set | `y3k_set` | Futuristic Y3K co-ord; metallic and forward-looking. |
 
-### Outfits — sports
+### AI Clothes Changes — sports
 
 | Effect name | Effect KEY | Description |
 |---|---|---|
@@ -214,7 +217,7 @@ Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the
 
 ## Multi-stage pipelines (chaining tasks)
 
-When the user asks for **more than one** BeautyPlus step on the **same** media (e.g. **photo restoration** then **outfit change**), treat each step as a **separate job** with its own **`--task`** (effect KEY):
+When the user asks for **more than one** BeautyPlus step on the **same** media (e.g. **photo restoration** then **AI Clothes change**), treat each step as a **separate job** with its own **`--task`** (effect KEY):
 
 | Typical chain | Stages |
 |---|---|
