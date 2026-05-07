@@ -83,135 +83,99 @@ For an overview of BeautyPlus products and features, please visit: [https://www.
 
 All rows use **image** input. Algorithm params for each key are returned as `invoke_spec` by **`POST /skill/consume.json`** — do not hard-code AIGC paths.
 
-### Body reshape — figure
+### 1. Body Reshape
+**Rule:** Select the base effect and append the tier suffix `_strong`, `_medium`, or `_weak`. (Default: `_medium`).
+*Example: For a strong natural breast enhancement, output `breast_natural_strong`.*
 
-Tiers: **strong / medium / weak** (append `_strong` / `_medium` / `_weak` to the key). If unspecified, default to `_medium`.
+*   **Breast Shapes:**
+    *   `breast_natural` : Natural-looking fullness; subtle lift.
+    *   `breast_teardrop`: Teardrop contour (fuller lower pole).
+    *   `breast_round`   : Rounded, lifted look with upward emphasis.
+    *   `breast_outward` : Fashion-editorial spread with outward emphasis.
+*   **Buttocks Shapes:**
+    *   `butt_peach`     : Lift and side volume for a rounded peach shape.
+    *   `butt_o_shape`   : Smooth, continuous curve with even side profile.
 
-| Effect name | Strong KEY | Medium KEY | Weak KEY | Description |
-|---|---|---|---|---|
-| Natural breast | `breast_natural_strong` | `breast_natural_medium` | `breast_natural_weak` | Natural-looking fullness; subtle lift that balances the silhouette. |
-| Teardrop breast | `teardrop_breast_strong` | `teardrop_breast_medium` | `teardrop_breast_weak` | Teardrop contour (fuller lower pole); refined, natural look. |
-| Round breast | `breast_round_strong` | `breast_round_medium` | `breast_round_weak` | Rounded, lifted look with visual emphasis upward; firm appearance. |
-| Outward breast | `breast_outward_strong` | `breast_outward_medium` | `breast_outward_weak` | Fashion-editorial spread with outward emphasis. |
-| Peach butt | `butt_peach_strong` | `butt_peach_medium` | `butt_peach_weak` | Lift and side volume for a rounded peach shape; improves waist-to-hip ratio. |
-| O-shape butt | `butt_o_shape_strong` | `butt_o_shape_medium` | `butt_o_shape_weak` | Smooth, continuous curve with even side profile. |
+### 2. Hair Editing
+*   **Hair Color:**
+    *   `hair_black`            : Deep black shine; natural look.
+    *   `hair_blonde`           : Classic golden blonde.
+    *   `hair_brown_highlights` : Brown with highlights for dimension.
+    *   `hair_platinum`         : Soft creamy platinum.
+    *   `hair_silver_platinum`  : Cool metallic silver; edgy modern look.
+    *   `hair_teddy_brown`      : Warm soft brown; youthful vibe.
+*   **Hair Style:**
+    *   `hair_glossy`       : Extra shine and sleek fall.
+    *   `hair_high_layer`   : Light layers and airy volume.
+    *   `hair_soft_waves`   : Romantic large waves.
+    *   `hair_latino_curls` : Tight curls, maximum volume.
 
-### Hair — color
+### 3. Outfits Changer
+**Rule:** Use the exact KEY for the `--task` argument to change the user's clothing.
 
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Natural black | `hair_black` | Deep black shine; healthy, natural-looking hair. |
-| Blonde | `hair_blonde` | Classic golden blonde; bright, skin-flattering tone. |
-| Brown with highlights | `hair_brown_highlights` | Alternating depth for dimension and movement. |
-| Platinum blonde | `hair_platinum` | Soft creamy platinum; gentle on skin tone. |
-| Silver platinum | `hair_silver_platinum` | Cool metallic silver; edgy, modern look. |
-| Teddy warm brown | `hair_teddy_brown` | Warm soft brown; softens features, youthful vibe. |
+**Formal / Evening:**
+*   `dress_yellow_gown`   : Vivid yellow silk evening gown.
+*   `dress_arctic_allure` : Rhinestone mesh gown with galaxy sparkle.
+*   `dress_ostrich_feather`: Ethereal feather gown.
+*   `dress_muse_goddess`  : Couture-heavy beaded goddess gown.
+*   `suit_tartan_eve`     : Smart, polished British tartan suit.
+*   `suit_red_carpet`     : Classic sharp black suit.
 
-### Hair — style
+**Vacation / Casual:**
+*   `accessory_bunny_ear`   : Playful bunny ear accessory.
+*   `dress_butter_moonlight`: Pale yellow slip dress; fresh light look.
+*   `dress_pink_puffy`      : Tiered pink puff dress; sweet portrait style.
+*   `dress_gold_hoodie`     : Urban casual hoodie dress.
+*   `dress_lace_corset`     : French-inspired lace corset set.
+*   `dress_chiffon_cake`    : Tiered chiffon maxi; relaxed vacation mood.
+*   `dress_sheer_bikini`    : Bikini under sheer cover; resort look.
 
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Glossy hair | `hair_glossy` | Extra shine and sleek fall; silky, reflective finish. |
-| Layered cut | `hair_high_layer` | Light layers and airy volume. |
-| Soft waves | `hair_soft_waves` | Romantic large waves; flatters face shape. |
-| Latino curls | `hair_latino_curls` | Tight curls, maximum volume; bold texture. |
+**Cosplay / Fantasy:**
+*   `cosplay_carnival`      : Carnival samba outfit with feather headpiece.
+*   `cosplay_bunny_cop`     : Navy bunny police uniform.
+*   `cosplay_fox_boyfriend` : Green fox print shirt; relaxed vibe.
+*   `cosplay_deer_girl`     : Forest fawn-inspired mini skirt.
+*   `cosplay_grinch`        : Green fuzzy Grinch party costume.
+*   `victoria_angel`        : Lingerie set with wings (runway showstopper).
+*   `dallas_cowboy`         : Iconic blue-and-white cheerleader uniform.
 
-### AI Clothes Changes — formal
+**Party / Y2K:**
+*   `floral_camisole` : Botanical floral cami.
+*   `puff_skirt`      : Strapless puff corset dress.
+*   `one_shoulder_lbd`: One-shoulder little black dress.
+*   `red_latex`       : Bold red latex mini skirt.
+*   `moonlight_dress` : Full-rhinestone bodycon long gown.
+*   `y3k_set`         : Futuristic metallic Y3K co-ord.
 
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Yellow evening gown | `dress_yellow_gown` | Vivid yellow silk gown; evening presence. |
-| Rhinestone mesh gown | `dress_arctic_allure` | Rhinestone mesh with galaxy sparkle; luxe and sheer. |
-| Feather gown | `dress_ostrich_feather` | Feather accents; ethereal movement. |
-| Beaded goddess gown | `dress_muse_goddess` | Radiating beadwork; couture-heavy look. |
-| Tartan suit | `suit_tartan_eve` | British tartan suit; smart, polished set. |
-| Black suit | `suit_red_carpet` | Classic black suit; sharp red-carpet energy. |
+**Sports / Activewear:**
+*   `brazilian_bikini`: Brazilian-cut bikini.
+*   `tennis_set`      : Sporty athletic-chic tennis skirt and top.
+*   `cozy_fit`        : Relaxed hoodie and jogger (urban athleisure).
+*   `racing_suit`     : Bold motorsport racing driver suit.
+*   `white_yoga`      : Minimal white yoga set.
 
-### AI Clothes Changes — vacation
+### 4. Facial Retouch & Expression
+*   **Face Style (Makeup & Retouch):**
+    *   `natural_beauty`  : Soft natural enhancement.
+    *   `glamour_beauty`  : Polished and charismatic look with makeup.
+    *   `sweet_beauty`    : Youthful sweet-girl vibe.
+    *   `luminous_beauty` : Radiant glow finish; bright complexion.
+    *   `youthful_beauty` : Fresh and energetic style.
+*   **Expression Changer:**
+    *   `closed_smile`    : Gentle closed-lip smile.
+    *   `open_smile`      : Wide toothy grin.
+    *   `cool_expression` : Serious, composed, and edgy.
+    *   `wink`            : Single-eye wink animation.
 
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Bunny ear accessory | `accessory_bunny_ear` | Playful bunny ears; flatters head and face shape. |
-| Pale yellow slip dress | `dress_butter_moonlight` | Low-saturation yellow slip; fresh, light look. |
-| Pink puff dress | `dress_pink_puffy` | Tiered pink puff dress; sweet portrait style. |
-| Hoodie dress | `dress_gold_hoodie` | Hoodie meets dress; urban casual blend. |
-| Lace corset set | `dress_lace_corset` | Lace with boned waist; French-inspired sensual fit. |
-| Tiered chiffon maxi | `dress_chiffon_cake` | Layered chiffon "cake" skirt; relaxed vacation mood. |
-| Sheer bikini overlay | `dress_sheer_bikini` | Bikini under sheer cover; two-piece resort look. |
-
-### AI Clothes Changes — cosplay
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Carnival samba outfit | `cosplay_carnival` | Feather headpiece and embellished bikini; carnival energy. |
-| Bunny police uniform | `cosplay_bunny_cop` | Navy police tailoring and accessories; crisp hero look. |
-| Fox print shirt | `cosplay_fox_boyfriend` | Green print shirt and tie; relaxed "boyfriend shirt" vibe. |
-| Deer girl mini skirt | `cosplay_deer_girl` | Brown with white spots; forest fawn-inspired skirt. |
-| Grinch costume | `cosplay_grinch` | Green fuzzy character look; fun party costume. |
-| Victoria Angel | `victoria_angel` | Wings and rhinestone-embellished lingerie set; runway showstopper. |
-| Dallas Cowboy | `dallas_cowboy` | Iconic blue-and-white Cowboys cheerleader uniform. |
-
-### AI Clothes Changes — party
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Floral Camisole | `floral_camisole` | Botanical floral cami with playful party flair. |
-| Puff Skirt | `puff_skirt` | Strapless puff corset dress; sweet and voluminous silhouette. |
-| One-Shoulder Little Black Dress | `one_shoulder_lbd` | One-shoulder little black dress; timeless evening edge. |
-| Red Latex | `red_latex` | Red latex mini skirt; bold editorial statement. |
-| Moonlight Shimmer Dress | `moonlight_dress` | Full-rhinestone bodycon long gown; moonlit glamour. |
-| Y3K Set | `y3k_set` | Futuristic Y3K co-ord; metallic and forward-looking. |
-
-### AI Clothes Changes — sports
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Brazilian Bikini | `brazilian_bikini` | Brazilian-cut bikini; beach-confident summer look. |
-| Tennis Set | `tennis_set` | Sporty tennis skirt and top; athletic-chic. |
-| Cozy Fit | `cozy_fit` | Relaxed hoodie and jogger co-ord; urban athleisure. |
-| Racing Suit | `racing_suit` | Racing driver suit; bold motorsport identity. |
-| White Yoga | `white_yoga` | Clean white yoga set; minimal and performance-ready. |
-
-### Face style
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Natural Beauty | `natural_beauty` | Soft natural enhancement; balanced, effortless temperament. |
-| Glamour Beauty | `glamour_beauty` | Polished and charismatic look; refined allure. |
-| Sweet Beauty | `sweet_beauty` | Youthful sweet-girl vibe; soft and approachable. |
-| Luminous Beauty | `luminous_beauty` | Radiant glow finish; bright and clear complexion feel. |
-| Youthful Beauty | `youthful_beauty` | Fresh and energetic youth style; lively presence. |
-
-### Expression
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Closed Smile | `closed_smile` | Gentle closed-lip smile; warm and approachable. |
-| Open Smile | `open_smile` | Wide toothy grin; bright and joyful. |
-| Cool Expression | `cool_expression` | Serious cool expression; composed and edgy. |
-| Wink | `wink` | Single-eye wink animation; playful and flirtatious. |
-
-### Photo art
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Tanning Filter | `tanning_filter` | Warm bronzed tan filter; sun-kissed editorial look. |
-| CCD Flash | `ccd_flash` | Vintage CCD-camera flash effect; nostalgic party vibe. |
-| Film Flash | `film_flash` | Film grain with flash overlay; analog atmosphere. |
-| Fuji Flash | `fuji_flash` | Fujifilm-style flash; soft grain and warm tones. |
-
-### Photo restoration
-
-| Effect name | Effect KEY | Description |
-|---|---|---|
-| Photo restoration | `photo_restoration_v3` | Denoise, deblur, and reduce compression artifacts while keeping a natural look. |
-| AI ultra-HD | `ai_ultra_hd_v3` | Deep-learning upscale and detail recovery for old photos or small thumbnails. |
-
-### Video async path (reserved)
-
-**Current catalog is image-only.** Use **§3a** (`run-task`) for every listed key.
-
-**Future video keys:** When the server publishes video effect keys, use `spawn-run-task` → `sessions_spawn` per §3b (`runTimeoutSeconds` default **3600**). See [docs/errors-and-polling.md](docs/errors-and-polling.md) for polling details.
+### 5. Photo Quality & Art Filters
+*   **Photo Restoration (Quality Upgrade):**
+    *   `photo_restoration_v3`: Denoise, deblur, reduce artifacts (keeps natural look).
+    *   `ai_ultra_hd_v3`      : Deep-learning upscale and detail recovery for old/small photos.
+*   **Photo Art (Lighting & Filters):**
+    *   `tanning_filter` : Warm bronzed tan skin filter.
+    *   `ccd_flash`      : Vintage CCD-camera flash effect.
+    *   `film_flash`     : Film grain with flash overlay.
+    *   `fuji_flash`     : Fujifilm-style flash; soft grain and warm tones.
 
 ---
 
