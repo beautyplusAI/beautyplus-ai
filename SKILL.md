@@ -1,29 +1,67 @@
 ---
 name: beautyplus-ai
-description: "BeautyPlus portrait beautification: body reshape (breast/butt presets with strength tiers), hair color and hairstyle, outfit change (formal / vacation / cosplay / party / sports), face style, expression (smile / wink / cool), and photo art (tan / flash / film).  "
-version: 1.0.1
+description: "A comprehensive AI image editing and beautification suite. Use this tool for portrait retouching, body reshaping (breast/butt), AI hair & outfit changes, expression modification, photo restoration (upscaling), and artistic filters."
+version: 1.0.4
 author: BeautyPlus
-metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","body-reshape","hair-color","hairstyle","outfit-change","cosplay","photo-restoration","beautyplus","paid-api"]}}
+metadata: {"openclaw":{"emoji":"🖼️","requires":{"bins":["python3"],"env":{"BP_AK":{"required":true},"BP_SK":{"required":true}}},"tags":["image-processing","portrait-retouching","body-reshape","virtual-try-on","photo-restoration","image-upscaling", "ai-cosplay", "makeover"]}}
 ---
 
-# BeautyPlus Skill
+# BeautyPlus Skills & API
 
 ## When to Use This Skill
 
-Activate when the user wants any of the following on a **photo / image** (path, URL, or IM attachment):
+Activate this skill whenever the user requests any modifications, enhancements, or artistic changes to a **photo / image** (provided via path, URL, or attachment). 
 
-- **Body reshape (figure)** — breast enhancement (natural / teardrop / round / outward), peach butt, O-shape butt, etc., each with **strong / medium / weak** tiers
-- **Hair — color** — natural black, blonde, brown highlights, platinum, silver platinum, teddy warm brown, etc.
-- **Hair — style** — glossy hair, layered cut, soft waves, Latino curls, etc.
-- **Outfits — formal** — gowns, rhinestone mesh dress, feather dress, beaded dress, tartan suit, black suit, etc.
-- **Outfits — vacation** — bunny ears, slip dress, puff dress, hoodie dress, lace corset set, tiered chiffon dress, sheer bikini overlay, etc.
-- **Outfits — cosplay** — carnival, bunny cop, fox shirt, deer girl skirt, Grinch, Victoria Angel, Dallas Cowboy, etc.
-- **Outfits — party** — Floral Camisole, Puff Skirt, One-Shoulder LBD, Red Latex, Moonlight Shimmer Dress, Y3K Set, etc.
-- **Outfits — sports** — Brazilian Bikini, Tennis Set, Cozy Fit, Racing Suit, White Yoga, etc.
-- **Face style** — Natural Beauty, Glamour Beauty, Sweet Beauty, Luminous Beauty, Youthful Beauty
-- **Expression** — Closed Smile, Open Smile, Cool Expression, Wink
-- **Photo art** — Tanning Filter, CCD Flash, Film Flash, Fuji Flash
-- **Photo restoration** — denoise / repair, AI ultra-HD upscaling
+**Trigger Intent Keywords for Agent:** 
+"Make me look better", "change my clothes", "fix this blurry photo", "make me smile", "enhance my body", "change my hair color", "change my hair style","add a filter", "cosplay", "upscale".
+
+## 🛠️ Effects Dictionary (How to choose the right effect)
+
+Agent Instruction: Analyze the user's request. Find the matching category below, select the most appropriate specific style/effect, and pass the corresponding `Effect KEY` to the API.
+
+### 1. 🪄 Portrait Retouch & Makeup
+*   **Use when:** The user wants to look prettier, remove blemishes, apply makeup, or improve overall facial aesthetics without changing identity.
+*   **Available Effects:** 
+    *   **Natural Beauty**: Subtle enhancement, clear skin.
+    *   **Glamour Beauty**: Full makeup, high-end look.
+    *   **Sweet Beauty / Youthful**: Brighter, softer, younger appearance.
+
+### 2. 🎭 Expression Changer
+*   **Use when:** The user wants to change the emotion or facial expression of the person in the photo.
+*   **Available Effects:** 
+    *   **Smile**: Open Smile, Closed Smile.
+    *   **Other**: Wink, Cool Expression.
+
+### 3. 👗 AI Clothes Changer
+*   **Use when:** The user asks to change outfits, try on different styles, or dress up for a specific occasion.
+*   **Available Categories & Effects:**
+    *   **Formal / Evening:** Gowns, Rhinestone mesh dress, Beaded dress, Black suit.
+    *   **Vacation / Casual:** Slip dress, Puff dress, Hoodie, Lace corset, Bikini overlay.
+    *   **Party / Y2K:** Floral Camisole, Red Latex, Shimmer Dress, Y3K Set.
+    *   **Sports:** Tennis Set, Racing Suit, White Yoga, Brazilian Bikini.
+    *   **Cosplay / Fantasy:** Bunny cop, Fox shirt, Deer girl, Grinch, Victoria Angel, Dallas Cowboy.
+
+### 4. 💇‍♀️ Hair Styling & Coloring
+*   **Use when:** The user wants a new hairstyle or hair color.
+*   **Available Effects:**
+    *   **Colors:** Natural black, Blonde, Brown highlights, Platinum, Silver platinum, Teddy warm brown.
+    *   **Styles:** Glossy hair, Layered cut, Soft waves, Latino curls.
+
+### 5. ⏳ Body Reshape
+*   **Use when:** The user specifically asks to enhance, enlarge, or reshape their body parts (breast or buttocks).
+*   **Available Effects (Each supports Strong / Medium / Weak tiers):**
+    *   **Breast Enhancement:** Natural, Teardrop, Round, Outward.
+    *   **Butt Enhancement:** Peach butt, O-shape.
+
+### 6. 🖼️ Photo Restoration & Quality
+*   **Use when:** The image is blurry, noisy, old, or low resolution. Keywords: "fix", "clear", "upscale", "enhance quality".
+*   **Available Effects:** AI Ultra-HD Upscaling, Denoise, Repair.
+
+### 7. 📸 Photo Art & Filters
+*   **Use when:** The user wants a specific camera vibe, lighting effect, or skin tone change.
+*   **Available Effects:** 
+    *   **Filters/Flash:** CCD Flash, Film Flash, Fuji Flash.
+    *   **Skin Tone:** Tanning Filter.
 
 **Effect KEY:** The CLI `--task` value must be the **effect KEY** string from the table below. The algorithm spec for each key is returned inline by **`POST /skill/consume.json`** (`invoke_spec`) — do not hard-code AIGC paths.
 
