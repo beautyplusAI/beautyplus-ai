@@ -20,7 +20,7 @@ Current catalog is **image-focused** and uses **effect KEY** as `--task` (not le
 
 ## API keys (AK / SK)
 
-Get your Access Key and Secret Key from **[BeautyPlus Developers](https://beautyplus.com/developers)**.
+Get your Access Key and Secret Key from **[BeautyPlus Developers](https://beautyplus.com/developers/console)**.
 
 Put them in `scripts/.env` (see `scripts/.env.example` if present) or export them in the environment:
 
